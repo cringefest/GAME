@@ -292,7 +292,7 @@ def game_loop(max_number):
     '''
     () -> ()
     A function that Launches the game.
-    
+
     '''
     clock.tick(60)
     choices = random_choices(11, max_number)
@@ -341,701 +341,87 @@ def game_loop(max_number):
         for j in range(440, 710, 30):
             heart(j,140)
 
-        if round == 0:
 
+        for rounds_count in range(9):
 
-                panel_surface = pygame.Surface((120, 40))
-                panel_surface.fill(brown)
-                screen.blit(panel_surface, (332, 0))
 
-                button1 = pygame.Rect(200, 50, 91, 50)
-                button1_surface = pygame.Surface((91, 50))
-                button1_surface.fill(brown)
-                screen.blit(button1_surface, (200, 50))
 
-                button2 = pygame.Rect(347, 50, 91, 50)
-                button2_surface = pygame.Surface((91, 50))
-                button2_surface.fill(brown)
-                screen.blit(button2_surface, (347, 50))
+            if round == rounds_count:
 
-                button3 = pygame.Rect(494, 50, 91, 50)
-                button3_surface = pygame.Surface((91, 50))
-                button3_surface.fill(brown)
-                screen.blit(button3_surface, (494, 50))
 
+                    panel_surface = pygame.Surface((120, 40))
+                    panel_surface.fill(brown)
+                    screen.blit(panel_surface, (332, 0))
 
-                # if player_hp == 0 or dragon_hp == 0:
-                #     break
+                    button1 = pygame.Rect(200, 50, 91, 50)
+                    button1_surface = pygame.Surface((91, 50))
+                    button1_surface.fill(brown)
+                    screen.blit(button1_surface, (200, 50))
 
+                    button2 = pygame.Rect(347, 50, 91, 50)
+                    button2_surface = pygame.Surface((91, 50))
+                    button2_surface.fill(brown)
+                    screen.blit(button2_surface, (347, 50))
 
+                    button3 = pygame.Rect(494, 50, 91, 50)
+                    button3_surface = pygame.Surface((91, 50))
+                    button3_surface.fill(brown)
+                    screen.blit(button3_surface, (494, 50))
 
-                button_text(str(choices[0][round][0]), 200, 50)
-                button_text(str(choices[0][round][1]), 347, 50)
-                button_text(str(choices[0][round][2]), 494, 50)
 
-                if choices[1][round] == 0:
-                    button_text("even", 345, 0)
-                elif choices[1][round] == 1:
-                    button_text("lucky", 345, 0)
-                else:
-                    button_text("ulam", 345, 0)
+                    # if player_hp == 0 or dragon_hp == 0:
+                    #     break
 
 
 
+                    button_text(str(choices[0][round][0]), 200, 50)
+                    button_text(str(choices[0][round][1]), 347, 50)
+                    button_text(str(choices[0][round][2]), 494, 50)
 
+                    if choices[1][round] == 0:
+                        button_text("even", 345, 0)
+                    elif choices[1][round] == 1:
+                        button_text("lucky", 345, 0)
+                    else:
+                        button_text("ulam", 345, 0)
 
-                for event in pygame.event.get():
-                    if event.type == pygame.QUIT:
-                                pygame.quit()
-                                quit()
-                    if event.type == pygame.MOUSEBUTTONDOWN:
-                        if event.button == 1:
 
-                            if choices[1][round] == 0:
-                                if (button1.collidepoint(event.pos) and (choices[0][round][0] in even)) or (button2.collidepoint(event.pos) and (choices[0][round][1] in even)) or (button3.collidepoint(event.pos) and (choices[0][round][2] in even)):
-                                    dragon_hp -= 1
-                                    round += 1
-                                elif button1.collidepoint(event.pos) or button2.collidepoint(event.pos) or button3.collidepoint(event.pos):
-                                    player_hp -= 1
-                                    round += 1
-                            elif choices[1][round] == 1:
-                                if (button1.collidepoint(event.pos) and (choices[0][round][0] in lucky)) or (button2.collidepoint(event.pos) and (choices[0][round][1] in lucky)) or (button3.collidepoint(event.pos) and (choices[0][round][2] in lucky)):
-                                    dragon_hp -= 1
-                                    round += 1
-                                elif button1.collidepoint(event.pos) or button2.collidepoint(event.pos) or button3.collidepoint(event.pos):
-                                    player_hp -= 1
-                                    round += 1
-                            else:
-                                if (button1.collidepoint(event.pos) and (choices[0][round][0] in ulam)) or (button2.collidepoint(event.pos) and (choices[0][round][1] in ulam)) or (button3.collidepoint(event.pos) and (choices[0][round][2] in ulam)):
-                                    dragon_hp -= 1
-                                    round += 1
-                                elif button1.collidepoint(event.pos) or button2.collidepoint(event.pos) or button3.collidepoint(event.pos):
-                                    player_hp -= 1
-                                    round += 1
 
 
-        if round == 1:
 
+                    for event in pygame.event.get():
+                        if event.type == pygame.QUIT:
+                                    pygame.quit()
+                                    quit()
+                        if event.type == pygame.MOUSEBUTTONDOWN:
+                            if event.button == 1:
 
-                panel_surface = pygame.Surface((120, 40))
-                panel_surface.fill(brown)
-                screen.blit(panel_surface, (332, 0))
+                                if choices[1][round] == 0:
+                                    if (button1.collidepoint(event.pos) and (choices[0][round][0] in even)) or (button2.collidepoint(event.pos) and (choices[0][round][1] in even)) or (button3.collidepoint(event.pos) and (choices[0][round][2] in even)):
+                                        dragon_hp -= 1
+                                        round += 1
+                                    elif button1.collidepoint(event.pos) or button2.collidepoint(event.pos) or button3.collidepoint(event.pos):
+                                        player_hp -= 1
+                                        round += 1
+                                elif choices[1][round] == 1:
+                                    if (button1.collidepoint(event.pos) and (choices[0][round][0] in lucky)) or (button2.collidepoint(event.pos) and (choices[0][round][1] in lucky)) or (button3.collidepoint(event.pos) and (choices[0][round][2] in lucky)):
+                                        dragon_hp -= 1
+                                        round += 1
+                                    elif button1.collidepoint(event.pos) or button2.collidepoint(event.pos) or button3.collidepoint(event.pos):
+                                        player_hp -= 1
+                                        round += 1
+                                else:
+                                    if (button1.collidepoint(event.pos) and (choices[0][round][0] in ulam)) or (button2.collidepoint(event.pos) and (choices[0][round][1] in ulam)) or (button3.collidepoint(event.pos) and (choices[0][round][2] in ulam)):
+                                        dragon_hp -= 1
+                                        round += 1
+                                    elif button1.collidepoint(event.pos) or button2.collidepoint(event.pos) or button3.collidepoint(event.pos):
+                                        player_hp -= 1
+                                        round += 1
 
-                button1 = pygame.Rect(200, 50, 91, 50)
-                button1_surface = pygame.Surface((91, 50))
-                button1_surface.fill(brown)
-                screen.blit(button1_surface, (200, 50))
 
-                button2 = pygame.Rect(347, 50, 91, 50)
-                button2_surface = pygame.Surface((91, 50))
-                button2_surface.fill(brown)
-                screen.blit(button2_surface, (347, 50))
 
-                button3 = pygame.Rect(494, 50, 91, 50)
-                button3_surface = pygame.Surface((91, 50))
-                button3_surface.fill(brown)
-                screen.blit(button3_surface, (494, 50))
 
 
-
-
-
-                button_text(str(choices[0][round][0]), 200, 50)
-                button_text(str(choices[0][round][1]), 347, 50)
-                button_text(str(choices[0][round][2]), 494, 50)
-
-                if choices[1][round] == 0:
-                    button_text("even", 345, 0)
-                elif choices[1][round] == 1:
-                    button_text("lucky", 345, 0)
-                else:
-                    button_text("ulam", 345, 0)
-
-
-
-
-
-                for event in pygame.event.get():
-                    if event.type == pygame.QUIT:
-                                pygame.quit()
-                                quit()
-                    if event.type == pygame.MOUSEBUTTONDOWN:
-                        if event.button == 1:
-                            if choices[1][round] == 0:
-                                if (button1.collidepoint(event.pos) and (choices[0][round][0] in even)) or (button2.collidepoint(event.pos) and (choices[0][round][1] in even)) or (button3.collidepoint(event.pos) and (choices[0][round][2] in even)):
-                                    dragon_hp -= 1
-                                    round += 1
-                                elif button1.collidepoint(event.pos) or button2.collidepoint(event.pos) or button3.collidepoint(event.pos):
-                                    player_hp -= 1
-                                    round += 1
-                            elif choices[1][round] == 1:
-                                if (button1.collidepoint(event.pos) and (choices[0][round][0] in lucky)) or (button2.collidepoint(event.pos) and (choices[0][round][1] in lucky)) or (button3.collidepoint(event.pos) and (choices[0][round][2] in lucky)):
-                                    dragon_hp -= 1
-                                    round += 1
-                                elif button1.collidepoint(event.pos) or button2.collidepoint(event.pos) or button3.collidepoint(event.pos):
-                                    player_hp -= 1
-                                    round += 1
-                            else:
-                                if (button1.collidepoint(event.pos) and (choices[0][round][0] in ulam)) or (button2.collidepoint(event.pos) and (choices[0][round][1] in ulam)) or (button3.collidepoint(event.pos) and (choices[0][round][2] in ulam)):
-                                    dragon_hp -= 1
-                                    round += 1
-                                elif button1.collidepoint(event.pos) or button2.collidepoint(event.pos) or button3.collidepoint(event.pos):
-                                    player_hp -= 1
-                                    round += 1
-
-
-        if round == 2:
-
-
-                panel_surface = pygame.Surface((120, 40))
-                panel_surface.fill(brown)
-                screen.blit(panel_surface, (332, 0))
-
-                button1 = pygame.Rect(200, 50, 91, 50)
-                button1_surface = pygame.Surface((91, 50))
-                button1_surface.fill(brown)
-                screen.blit(button1_surface, (200, 50))
-
-                button2 = pygame.Rect(347, 50, 91, 50)
-                button2_surface = pygame.Surface((91, 50))
-                button2_surface.fill(brown)
-                screen.blit(button2_surface, (347, 50))
-
-                button3 = pygame.Rect(494, 50, 91, 50)
-                button3_surface = pygame.Surface((91, 50))
-                button3_surface.fill(brown)
-                screen.blit(button3_surface, (494, 50))
-
-
-
-
-
-                button_text(str(choices[0][round][0]), 200, 50)
-                button_text(str(choices[0][round][1]), 347, 50)
-                button_text(str(choices[0][round][2]), 494, 50)
-
-                if choices[1][round] == 0:
-                    button_text("even", 345, 0)
-                elif choices[1][round] == 1:
-                    button_text("lucky", 345, 0)
-                else:
-                    button_text("ulam", 345, 0)
-
-
-
-
-
-                for event in pygame.event.get():
-                    if event.type == pygame.QUIT:
-                                pygame.quit()
-                                quit()
-                    if event.type == pygame.MOUSEBUTTONDOWN:
-                        if event.button == 1:
-                            if choices[1][round] == 0:
-                                if (button1.collidepoint(event.pos) and (choices[0][round][0] in even)) or (button2.collidepoint(event.pos) and (choices[0][round][1] in even)) or (button3.collidepoint(event.pos) and (choices[0][round][2] in even)):
-                                    dragon_hp -= 1
-                                    round += 1
-                                elif button1.collidepoint(event.pos) or button2.collidepoint(event.pos) or button3.collidepoint(event.pos):
-                                    player_hp -= 1
-                                    round += 1
-                            elif choices[1][round] == 1:
-                                if (button1.collidepoint(event.pos) and (choices[0][round][0] in lucky)) or (button2.collidepoint(event.pos) and (choices[0][round][1] in lucky)) or (button3.collidepoint(event.pos) and (choices[0][round][2] in lucky)):
-                                    dragon_hp -= 1
-                                    round += 1
-                                elif button1.collidepoint(event.pos) or button2.collidepoint(event.pos) or button3.collidepoint(event.pos):
-                                    player_hp -= 1
-                                    round += 1
-                            else:
-                                if (button1.collidepoint(event.pos) and (choices[0][round][0] in ulam)) or (button2.collidepoint(event.pos) and (choices[0][round][1] in ulam)) or (button3.collidepoint(event.pos) and (choices[0][round][2] in ulam)):
-                                    dragon_hp -= 1
-                                    round += 1
-                                elif button1.collidepoint(event.pos) or button2.collidepoint(event.pos) or button3.collidepoint(event.pos):
-                                    player_hp -= 1
-                                    round += 1
-
-        if round == 3:
-
-
-                panel_surface = pygame.Surface((120, 40))
-                panel_surface.fill(brown)
-                screen.blit(panel_surface, (332, 0))
-
-                button1 = pygame.Rect(200, 50, 91, 50)
-                button1_surface = pygame.Surface((91, 50))
-                button1_surface.fill(brown)
-                screen.blit(button1_surface, (200, 50))
-
-                button2 = pygame.Rect(347, 50, 91, 50)
-                button2_surface = pygame.Surface((91, 50))
-                button2_surface.fill(brown)
-                screen.blit(button2_surface, (347, 50))
-
-                button3 = pygame.Rect(494, 50, 91, 50)
-                button3_surface = pygame.Surface((91, 50))
-                button3_surface.fill(brown)
-                screen.blit(button3_surface, (494, 50))
-
-
-
-
-
-                button_text(str(choices[0][round][0]), 200, 50)
-                button_text(str(choices[0][round][1]), 347, 50)
-                button_text(str(choices[0][round][2]), 494, 50)
-
-                if choices[1][round] == 0:
-                    button_text("even", 345, 0)
-                elif choices[1][round] == 1:
-                    button_text("lucky", 345, 0)
-                else:
-                    button_text("ulam", 345, 0)
-
-
-
-
-
-                for event in pygame.event.get():
-                    if event.type == pygame.QUIT:
-                                pygame.quit()
-                                quit()
-                    if event.type == pygame.MOUSEBUTTONDOWN:
-                        if event.button == 1:
-                            if choices[1][round] == 0:
-                                if (button1.collidepoint(event.pos) and (choices[0][round][0] in even)) or (button2.collidepoint(event.pos) and (choices[0][round][1] in even)) or (button3.collidepoint(event.pos) and (choices[0][round][2] in even)):
-                                    dragon_hp -= 1
-                                    round += 1
-                                elif button1.collidepoint(event.pos) or button2.collidepoint(event.pos) or button3.collidepoint(event.pos):
-                                    player_hp -= 1
-                                    round += 1
-                            elif choices[1][round] == 1:
-                                if (button1.collidepoint(event.pos) and (choices[0][round][0] in lucky)) or (button2.collidepoint(event.pos) and (choices[0][round][1] in lucky)) or (button3.collidepoint(event.pos) and (choices[0][round][2] in lucky)):
-                                    dragon_hp -= 1
-                                    round += 1
-                                elif button1.collidepoint(event.pos) or button2.collidepoint(event.pos) or button3.collidepoint(event.pos):
-                                    player_hp -= 1
-                                    round += 1
-                            else:
-                                if (button1.collidepoint(event.pos) and (choices[0][round][0] in ulam)) or (button2.collidepoint(event.pos) and (choices[0][round][1] in ulam)) or (button3.collidepoint(event.pos) and (choices[0][round][2] in ulam)):
-                                    dragon_hp -= 1
-                                    round += 1
-                                elif button1.collidepoint(event.pos) or button2.collidepoint(event.pos) or button3.collidepoint(event.pos):
-                                    player_hp -= 1
-                                    round += 1
-
-        if round == 4:
-
-
-                panel_surface = pygame.Surface((120, 40))
-                panel_surface.fill(brown)
-                screen.blit(panel_surface, (332, 0))
-
-                button1 = pygame.Rect(200, 50, 91, 50)
-                button1_surface = pygame.Surface((91, 50))
-                button1_surface.fill(brown)
-                screen.blit(button1_surface, (200, 50))
-
-                button2 = pygame.Rect(347, 50, 91, 50)
-                button2_surface = pygame.Surface((91, 50))
-                button2_surface.fill(brown)
-                screen.blit(button2_surface, (347, 50))
-
-                button3 = pygame.Rect(494, 50, 91, 50)
-                button3_surface = pygame.Surface((91, 50))
-                button3_surface.fill(brown)
-                screen.blit(button3_surface, (494, 50))
-
-
-
-
-
-                button_text(str(choices[0][round][0]), 200, 50)
-                button_text(str(choices[0][round][1]), 347, 50)
-                button_text(str(choices[0][round][2]), 494, 50)
-
-                if choices[1][round] == 0:
-                    button_text("even", 345, 0)
-                elif choices[1][round] == 1:
-                    button_text("lucky", 345, 0)
-                else:
-                    button_text("ulam", 345, 0)
-
-
-
-
-
-                for event in pygame.event.get():
-                    if event.type == pygame.QUIT:
-                                pygame.quit()
-                                quit()
-                    if event.type == pygame.MOUSEBUTTONDOWN:
-                        if event.button == 1:
-                            if choices[1][round] == 0:
-                                if (button1.collidepoint(event.pos) and (choices[0][round][0] in even)) or (button2.collidepoint(event.pos) and (choices[0][round][1] in even)) or (button3.collidepoint(event.pos) and (choices[0][round][2] in even)):
-                                    dragon_hp -= 1
-                                    round += 1
-                                elif button1.collidepoint(event.pos) or button2.collidepoint(event.pos) or button3.collidepoint(event.pos):
-                                    player_hp -= 1
-                                    round += 1
-                            elif choices[1][round] == 1:
-                                if (button1.collidepoint(event.pos) and (choices[0][round][0] in lucky)) or (button2.collidepoint(event.pos) and (choices[0][round][1] in lucky)) or (button3.collidepoint(event.pos) and (choices[0][round][2] in lucky)):
-                                    dragon_hp -= 1
-                                    round += 1
-                                elif button1.collidepoint(event.pos) or button2.collidepoint(event.pos) or button3.collidepoint(event.pos):
-                                    player_hp -= 1
-                                    round += 1
-                            else:
-                                if (button1.collidepoint(event.pos) and (choices[0][round][0] in ulam)) or (button2.collidepoint(event.pos) and (choices[0][round][1] in ulam)) or (button3.collidepoint(event.pos) and (choices[0][round][2] in ulam)):
-                                    dragon_hp -= 1
-                                    round += 1
-                                elif button1.collidepoint(event.pos) or button2.collidepoint(event.pos) or button3.collidepoint(event.pos):
-                                    player_hp -= 1
-                                    round += 1
-
-        if round == 5:
-
-
-                panel_surface = pygame.Surface((120, 40))
-                panel_surface.fill(brown)
-                screen.blit(panel_surface, (332, 0))
-
-                button1 = pygame.Rect(200, 50, 91, 50)
-                button1_surface = pygame.Surface((91, 50))
-                button1_surface.fill(brown)
-                screen.blit(button1_surface, (200, 50))
-
-                button2 = pygame.Rect(347, 50, 91, 50)
-                button2_surface = pygame.Surface((91, 50))
-                button2_surface.fill(brown)
-                screen.blit(button2_surface, (347, 50))
-
-                button3 = pygame.Rect(494, 50, 91, 50)
-                button3_surface = pygame.Surface((91, 50))
-                button3_surface.fill(brown)
-                screen.blit(button3_surface, (494, 50))
-
-
-
-
-
-                button_text(str(choices[0][round][0]), 200, 50)
-                button_text(str(choices[0][round][1]), 347, 50)
-                button_text(str(choices[0][round][2]), 494, 50)
-
-                if choices[1][round] == 0:
-                    button_text("even", 345, 0)
-                elif choices[1][round] == 1:
-                    button_text("lucky", 345, 0)
-                else:
-                    button_text("ulam", 345, 0)
-
-
-
-
-
-                for event in pygame.event.get():
-                    if event.type == pygame.QUIT:
-                                pygame.quit()
-                                quit()
-                    if event.type == pygame.MOUSEBUTTONDOWN:
-                        if event.button == 1:
-                            if choices[1][round] == 0:
-                                if (button1.collidepoint(event.pos) and (choices[0][round][0] in even)) or (button2.collidepoint(event.pos) and (choices[0][round][1] in even)) or (button3.collidepoint(event.pos) and (choices[0][round][2] in even)):
-                                    dragon_hp -= 1
-                                    round += 1
-                                elif button1.collidepoint(event.pos) or button2.collidepoint(event.pos) or button3.collidepoint(event.pos):
-                                    player_hp -= 1
-                                    round += 1
-                            elif choices[1][round] == 1:
-                                if (button1.collidepoint(event.pos) and (choices[0][round][0] in lucky)) or (button2.collidepoint(event.pos) and (choices[0][round][1] in lucky)) or (button3.collidepoint(event.pos) and (choices[0][round][2] in lucky)):
-                                    dragon_hp -= 1
-                                    round += 1
-                                elif button1.collidepoint(event.pos) or button2.collidepoint(event.pos) or button3.collidepoint(event.pos):
-                                    player_hp -= 1
-                                    round += 1
-                            else:
-                                if (button1.collidepoint(event.pos) and (choices[0][round][0] in ulam)) or (button2.collidepoint(event.pos) and (choices[0][round][1] in ulam)) or (button3.collidepoint(event.pos) and (choices[0][round][2] in ulam)):
-                                    dragon_hp -= 1
-                                    round += 1
-                                elif button1.collidepoint(event.pos) or button2.collidepoint(event.pos) or button3.collidepoint(event.pos):
-                                    player_hp -= 1
-                                    round += 1
-
-        if round == 6:
-
-
-                panel_surface = pygame.Surface((120, 40))
-                panel_surface.fill(brown)
-                screen.blit(panel_surface, (332, 0))
-
-                button1 = pygame.Rect(200, 50, 91, 50)
-                button1_surface = pygame.Surface((91, 50))
-                button1_surface.fill(brown)
-                screen.blit(button1_surface, (200, 50))
-
-                button2 = pygame.Rect(347, 50, 91, 50)
-                button2_surface = pygame.Surface((91, 50))
-                button2_surface.fill(brown)
-                screen.blit(button2_surface, (347, 50))
-
-                button3 = pygame.Rect(494, 50, 91, 50)
-                button3_surface = pygame.Surface((91, 50))
-                button3_surface.fill(brown)
-                screen.blit(button3_surface, (494, 50))
-
-
-
-
-
-                button_text(str(choices[0][round][0]), 200, 50)
-                button_text(str(choices[0][round][1]), 347, 50)
-                button_text(str(choices[0][round][2]), 494, 50)
-
-                if choices[1][round] == 0:
-                    button_text("even", 345, 0)
-                elif choices[1][round] == 1:
-                    button_text("lucky", 345, 0)
-                else:
-                    button_text("ulam", 345, 0)
-
-
-
-
-
-                for event in pygame.event.get():
-                    if event.type == pygame.QUIT:
-                                pygame.quit()
-                                quit()
-                    if event.type == pygame.MOUSEBUTTONDOWN:
-                        if event.button == 1:
-                            if choices[1][round] == 0:
-                                if (button1.collidepoint(event.pos) and (choices[0][round][0] in even)) or (button2.collidepoint(event.pos) and (choices[0][round][1] in even)) or (button3.collidepoint(event.pos) and (choices[0][round][2] in even)):
-                                    dragon_hp -= 1
-                                    round += 1
-                                elif button1.collidepoint(event.pos) or button2.collidepoint(event.pos) or button3.collidepoint(event.pos):
-                                    player_hp -= 1
-                                    round += 1
-                            elif choices[1][round] == 1:
-                                if (button1.collidepoint(event.pos) and (choices[0][round][0] in lucky)) or (button2.collidepoint(event.pos) and (choices[0][round][1] in lucky)) or (button3.collidepoint(event.pos) and (choices[0][round][2] in lucky)):
-                                    dragon_hp -= 1
-                                    round += 1
-                                elif button1.collidepoint(event.pos) or button2.collidepoint(event.pos) or button3.collidepoint(event.pos):
-                                    player_hp -= 1
-                                    round += 1
-                            else:
-                                if (button1.collidepoint(event.pos) and (choices[0][round][0] in ulam)) or (button2.collidepoint(event.pos) and (choices[0][round][1] in ulam)) or (button3.collidepoint(event.pos) and (choices[0][round][2] in ulam)):
-                                    dragon_hp -= 1
-                                    round += 1
-                                elif button1.collidepoint(event.pos) or button2.collidepoint(event.pos) or button3.collidepoint(event.pos):
-                                    player_hp -= 1
-                                    round += 1
-
-        if round == 7:
-
-
-                panel_surface = pygame.Surface((120, 40))
-                panel_surface.fill(brown)
-                screen.blit(panel_surface, (332, 0))
-
-                button1 = pygame.Rect(200, 50, 91, 50)
-                button1_surface = pygame.Surface((91, 50))
-                button1_surface.fill(brown)
-                screen.blit(button1_surface, (200, 50))
-
-                button2 = pygame.Rect(347, 50, 91, 50)
-                button2_surface = pygame.Surface((91, 50))
-                button2_surface.fill(brown)
-                screen.blit(button2_surface, (347, 50))
-
-                button3 = pygame.Rect(494, 50, 91, 50)
-                button3_surface = pygame.Surface((91, 50))
-                button3_surface.fill(brown)
-                screen.blit(button3_surface, (494, 50))
-
-
-
-
-
-                button_text(str(choices[0][round][0]), 200, 50)
-                button_text(str(choices[0][round][1]), 347, 50)
-                button_text(str(choices[0][round][2]), 494, 50)
-
-                if choices[1][round] == 0:
-                    button_text("even", 345, 0)
-                elif choices[1][round] == 1:
-                    button_text("lucky", 345, 0)
-                else:
-                    button_text("ulam", 345, 0)
-
-
-
-
-
-                for event in pygame.event.get():
-                    if event.type == pygame.QUIT:
-                                pygame.quit()
-                                quit()
-                    if event.type == pygame.MOUSEBUTTONDOWN:
-                        if event.button == 1:
-                            if choices[1][round] == 0:
-                                if (button1.collidepoint(event.pos) and (choices[0][round][0] in even)) or (button2.collidepoint(event.pos) and (choices[0][round][1] in even)) or (button3.collidepoint(event.pos) and (choices[0][round][2] in even)):
-                                    dragon_hp -= 1
-                                    round += 1
-                                elif button1.collidepoint(event.pos) or button2.collidepoint(event.pos) or button3.collidepoint(event.pos):
-                                    player_hp -= 1
-                                    round += 1
-                            elif choices[1][round] == 1:
-                                if (button1.collidepoint(event.pos) and (choices[0][round][0] in lucky)) or (button2.collidepoint(event.pos) and (choices[0][round][1] in lucky)) or (button3.collidepoint(event.pos) and (choices[0][round][2] in lucky)):
-                                    dragon_hp -= 1
-                                    round += 1
-                                elif button1.collidepoint(event.pos) or button2.collidepoint(event.pos) or button3.collidepoint(event.pos):
-                                    player_hp -= 1
-                                    round += 1
-                            else:
-                                if (button1.collidepoint(event.pos) and (choices[0][round][0] in ulam)) or (button2.collidepoint(event.pos) and (choices[0][round][1] in ulam)) or (button3.collidepoint(event.pos) and (choices[0][round][2] in ulam)):
-                                    dragon_hp -= 1
-                                    round += 1
-                                elif button1.collidepoint(event.pos) or button2.collidepoint(event.pos) or button3.collidepoint(event.pos):
-                                    player_hp -= 1
-                                    round += 1
-
-        if round == 8:
-
-
-                panel_surface = pygame.Surface((120, 40))
-                panel_surface.fill(brown)
-                screen.blit(panel_surface, (332, 0))
-
-                button1 = pygame.Rect(200, 50, 91, 50)
-                button1_surface = pygame.Surface((91, 50))
-                button1_surface.fill(brown)
-                screen.blit(button1_surface, (200, 50))
-
-                button2 = pygame.Rect(347, 50, 91, 50)
-                button2_surface = pygame.Surface((91, 50))
-                button2_surface.fill(brown)
-                screen.blit(button2_surface, (347, 50))
-
-                button3 = pygame.Rect(494, 50, 91, 50)
-                button3_surface = pygame.Surface((91, 50))
-                button3_surface.fill(brown)
-                screen.blit(button3_surface, (494, 50))
-
-
-
-
-
-                button_text(str(choices[0][round][0]), 200, 50)
-                button_text(str(choices[0][round][1]), 347, 50)
-                button_text(str(choices[0][round][2]), 494, 50)
-
-                if choices[1][round] == 0:
-                    button_text("even", 345, 0)
-                elif choices[1][round] == 1:
-                    button_text("lucky", 345, 0)
-                else:
-                    button_text("ulam", 345, 0)
-
-
-
-
-
-                for event in pygame.event.get():
-                    if event.type == pygame.QUIT:
-                                pygame.quit()
-                                quit()
-                    if event.type == pygame.MOUSEBUTTONDOWN:
-                        if event.button == 1:
-                            if choices[1][round] == 0:
-                                if (button1.collidepoint(event.pos) and (choices[0][round][0] in even)) or (button2.collidepoint(event.pos) and (choices[0][round][1] in even)) or (button3.collidepoint(event.pos) and (choices[0][round][2] in even)):
-                                    dragon_hp -= 1
-                                    round += 1
-                                elif button1.collidepoint(event.pos) or button2.collidepoint(event.pos) or button3.collidepoint(event.pos):
-                                    player_hp -= 1
-                                    round += 1
-                            elif choices[1][round] == 1:
-                                if (button1.collidepoint(event.pos) and (choices[0][round][0] in lucky)) or (button2.collidepoint(event.pos) and (choices[0][round][1] in lucky)) or (button3.collidepoint(event.pos) and (choices[0][round][2] in lucky)):
-                                    dragon_hp -= 1
-                                    round += 1
-                                elif button1.collidepoint(event.pos) or button2.collidepoint(event.pos) or button3.collidepoint(event.pos):
-                                    player_hp -= 1
-                                    round += 1
-                            else:
-                                if (button1.collidepoint(event.pos) and (choices[0][round][0] in ulam)) or (button2.collidepoint(event.pos) and (choices[0][round][1] in ulam)) or (button3.collidepoint(event.pos) and (choices[0][round][2] in ulam)):
-                                    dragon_hp -= 1
-                                    round += 1
-                                elif button1.collidepoint(event.pos) or button2.collidepoint(event.pos) or button3.collidepoint(event.pos):
-                                    player_hp -= 1
-                                    round += 1
-
-
-        if round == 9:
-
-
-                panel_surface = pygame.Surface((120, 40))
-                panel_surface.fill(brown)
-                screen.blit(panel_surface, (332, 0))
-
-                button1 = pygame.Rect(200, 50, 91, 50)
-                button1_surface = pygame.Surface((91, 50))
-                button1_surface.fill(brown)
-                screen.blit(button1_surface, (200, 50))
-
-                button2 = pygame.Rect(347, 50, 91, 50)
-                button2_surface = pygame.Surface((91, 50))
-                button2_surface.fill(brown)
-                screen.blit(button2_surface, (347, 50))
-
-                button3 = pygame.Rect(494, 50, 91, 50)
-                button3_surface = pygame.Surface((91, 50))
-                button3_surface.fill(brown)
-                screen.blit(button3_surface, (494, 50))
-
-
-
-
-
-                button_text(str(choices[0][round][0]), 200, 50)
-                button_text(str(choices[0][round][1]), 347, 50)
-                button_text(str(choices[0][round][2]), 494, 50)
-
-                if choices[1][round] == 0:
-                    button_text("even", 345, 0)
-                elif choices[1][round] == 1:
-                    button_text("lucky", 345, 0)
-                else:
-                    button_text("ulam", 345, 0)
-
-
-
-
-
-                for event in pygame.event.get():
-                    if event.type == pygame.QUIT:
-                                pygame.quit()
-                                quit()
-                    if event.type == pygame.MOUSEBUTTONDOWN:
-                        if event.button == 1:
-                            if choices[1][round] == 0:
-                                if (button1.collidepoint(event.pos) and (choices[0][round][0] in even)) or (button2.collidepoint(event.pos) and (choices[0][round][1] in even)) or (button3.collidepoint(event.pos) and (choices[0][round][2] in even)):
-                                    dragon_hp -= 1
-                                    round += 1
-                                elif button1.collidepoint(event.pos) or button2.collidepoint(event.pos) or button3.collidepoint(event.pos):
-                                    player_hp -= 1
-                                    round += 1
-                            elif choices[1][round] == 1:
-                                if (button1.collidepoint(event.pos) and (choices[0][round][0] in lucky)) or (button2.collidepoint(event.pos) and (choices[0][round][1] in lucky)) or (button3.collidepoint(event.pos) and (choices[0][round][2] in lucky)):
-                                    dragon_hp -= 1
-                                    round += 1
-                                elif button1.collidepoint(event.pos) or button2.collidepoint(event.pos) or button3.collidepoint(event.pos):
-                                    player_hp -= 1
-                                    round += 1
-                            else:
-                                if (button1.collidepoint(event.pos) and (choices[0][round][0] in ulam)) or (button2.collidepoint(event.pos) and (choices[0][round][1] in ulam)) or (button3.collidepoint(event.pos) and (choices[0][round][2] in ulam)):
-                                    dragon_hp -= 1
-                                    round += 1
-                                elif button1.collidepoint(event.pos) or button2.collidepoint(event.pos) or button3.collidepoint(event.pos):
-                                    player_hp -= 1
-                                    round += 1
 
         if round == 10:
 
@@ -1260,10 +646,6 @@ def game_loop(max_number):
 
                         if button_change_difficulty.collidepoint(event.pos):
                             game_difficulty()
-
-
-
-
 
 
 
