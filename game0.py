@@ -30,6 +30,7 @@ def background(x,y):
     Fills the game screen with background image in the stated coordinates.
 
     >>> background(0,0)
+
     '''
     screen.blit(backgroundImg,(x,y))
 
@@ -39,6 +40,7 @@ def dragon(x,y):
     Draws the image of a dragon in the stated coordinates.
 
     >>> dragon(200,300)
+
     '''
     screen.blit(dragonImg,(x,y))
 
@@ -48,6 +50,7 @@ def wizard(x,y):
     Draws the image of a wizzard in the stated coordinates.
 
     >>> wizzard(400,300)
+
     '''
     screen.blit(wizardImg,(x,y))
 
@@ -57,6 +60,7 @@ def heart(x,y):
     Draws the image of a heart in the stated coordinates.
 
     >>> heart(200,230)
+
     '''
     screen.blit(heartImg,(x,y))
 
@@ -66,6 +70,7 @@ def blackheart(x,y):
     Draws the image of a blackheart in the stated coordinates.
 
     >>> blackheart(200,230)
+
     '''
     screen.blit(blackheartImg,(x,y))
 
@@ -75,6 +80,7 @@ def intro_background(x,y):
     Fill the game screen (the intro screen) with the background image in the stated coordinates.
 
     >>> intro_background(0,0)
+
     '''
     screen.blit(intro_backgroundImg,(x,y))
 
@@ -84,6 +90,7 @@ def text_objects(text,font):
     Adds the text with a font into the button_text function.
 
     >>> text_objects("Hello", buttonText)
+
     '''
     textSurface = font.render(text,True,black)
     return textSurface,textSurface.get_rect()
@@ -94,6 +101,7 @@ def button_text(msg, x, y):
     Prints the given text on the game screen in the stated coordinates.
 
     >>> button_text("Hello",300,300)
+
     '''
     buttonText = pygame.font.Font("freesansbold.ttf",20)
     textSurf, textRect = text_objects(msg,buttonText)
@@ -217,6 +225,7 @@ def game_difficulty():
     '''
     () -> ()
     Launches a menu where you have to choose the difficulty of the game.
+
     '''
     clock.tick(60)
 
@@ -283,6 +292,7 @@ def game_loop(max_number):
     '''
     () -> ()
     A function that Launches the game.
+    
     '''
     clock.tick(60)
     choices = random_choices(11, max_number)
