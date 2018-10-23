@@ -13,46 +13,101 @@ black =(0,0,0)
 brown = (139,131,120)
 
 
-backgroundImg = pygame.image.load('back.jpg')
-dragonImg = pygame.image.load('dragon.png')
-wizardImg = pygame.image.load('wizard.png')
-heartImg = pygame.image.load('heart.png')
-blackheartImg = pygame.image.load('blackheart.png')
-victoryImg = pygame.image.load('victory.png')
-lightningImg = pygame.image.load('lightning.png')
-deaddragonImg = pygame.image.load('dragon_dead.png')
-fireballImg = pygame.image.load('fireball.png')
-defeatImg = pygame.image.load('youdied.png')
+backgroundImg = pygame.image.load('images/back.jpg')
+dragonImg = pygame.image.load('images/dragon.png')
+wizardImg = pygame.image.load('images/wizard.png')
+heartImg = pygame.image.load('images/heart.png')
+blackheartImg = pygame.image.load('images/blackheart.png')
+victoryImg = pygame.image.load('images/victory.png')
+lightningImg = pygame.image.load('images/lightning.png')
+deaddragonImg = pygame.image.load('images/dragon_dead.png')
+fireballImg = pygame.image.load('images/fireball.png')
+defeatImg = pygame.image.load('images/youdied.png')
 
 def background(x,y):
+    '''
+    (int,int) -> ()
+    Fills the game screen with background image in the stated coordinates.
+
+    >>> background(0,0)
+    '''
     screen.blit(backgroundImg,(x,y))
 
 def dragon(x,y):
+    '''
+    (int,int) -> ()
+    Draws the image of a dragon in the stated coordinates.
+
+    >>> dragon(200,300)
+    '''
     screen.blit(dragonImg,(x,y))
 
 def wizard(x,y):
+    '''
+    (int,int) -> ()
+    Draws the image of a wizzard in the stated coordinates.
+
+    >>> wizzard(400,300)
+    '''
     screen.blit(wizardImg,(x,y))
 
 def heart(x,y):
+    '''
+    (int,int) -> ()
+    Draws the image of a heart in the stated coordinates.
+
+    >>> heart(200,230)
+    '''
     screen.blit(heartImg,(x,y))
 
 def blackheart(x,y):
+    '''
+    (int,int) -> ()
+    Draws the image of a blackheart in the stated coordinates.
+
+    >>> blackheart(200,230)
+    '''
     screen.blit(blackheartImg,(x,y))
 
 def intro_background(x,y):
+    '''
+    (int,int) -> ()
+    Fill the game screen (the intro screen) with the background image in the stated coordinates.
+
+    >>> intro_background(0,0)
+    '''
     screen.blit(intro_backgroundImg,(x,y))
 
 def text_objects(text,font):
+    '''
+    (str, no specific type) -> ()
+    Adds the text with a font into the button_text function.
+
+    >>> text_objects("Hello", buttonText)
+    '''
     textSurface = font.render(text,True,black)
     return textSurface,textSurface.get_rect()
 
 def button_text(msg, x, y):
+    '''
+    (str,int,int) -> ()
+    Prints the given text on the game screen in the stated coordinates.
+
+    >>> button_text("Hello",300,300)
+    '''
     buttonText = pygame.font.Font("freesansbold.ttf",20)
     textSurf, textRect = text_objects(msg,buttonText)
     textRect.center = ((x+40,y+25))
     screen.blit(textSurf,textRect)
 
 def random_choices(amount, max_number):
+    '''
+    (int) -> (lst,lst)
+    Return a list containing a list with lists containing random numbers and list with correct answers.
+
+    >>> random_choices(100)
+    ([[6, 15, 1]], [0])
+    '''
     random_choices = []
     type_choices = []
     even = numbers.even_numbers(max_number)
@@ -97,6 +152,11 @@ screen.fill(white)
 
 
 def game_start():
+    '''
+    () -> ()
+    Launches a game intro.
+
+    '''
     clock.tick(60)
 
 
@@ -154,6 +214,10 @@ def game_start():
 
 
 def game_difficulty():
+    '''
+    () -> ()
+    Launches a menu where you have to choose the difficulty of the game.
+    '''
     clock.tick(60)
 
 
@@ -216,6 +280,10 @@ def game_difficulty():
 
 
 def game_loop(max_number):
+    '''
+    () -> ()
+    A function that Launches the game.
+    '''
     clock.tick(60)
     choices = random_choices(11, max_number)
     even = numbers.even_numbers(max_number)
